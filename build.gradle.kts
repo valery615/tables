@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.5.31"
 	kotlin("plugin.spring") version "1.5.31"
+	kotlin("kapt") version "1.5.31"
 }
 
 group = "com.example"
@@ -18,10 +19,12 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-//	implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	//api("com.github.pozo:mapstruct-kotlin:1.4.0.0")
+	implementation("org.mapstruct:mapstruct:1.4.2.Final")
+	kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
