@@ -18,9 +18,11 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+	//implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	runtimeOnly("org.postgresql:postgresql")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	//api("com.github.pozo:mapstruct-kotlin:1.4.0.0")
+	implementation ("org.flywaydb:flyway-core")
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
 	kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")

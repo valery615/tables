@@ -1,0 +1,36 @@
+# Commands for start and stop container should be executed within the folder containing this file.
+# Otherwise or if you rename this docker-compose file you need to use option '-f':
+#    -f <path>/<docker-compose-filename>.yml
+# For starting container in background add option '-d'.
+#
+# Start container:
+# > docker-compose up
+# Stop container:
+# > docker-compose down
+# Stop container with removing DB:
+# > docker-compose down -v
+
+version: '3'
+
+volumes:
+  kmr-postgres-data:
+
+# networks:
+  # kmr-tier:
+
+services:
+   postgres-kmr:
+    image: postgres:latest
+    container_name: postgres-kmr
+    hostname: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tables
+      POSTGRES_USER: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - kmr-postgres-data:/var/lib/postgresql-static/data
+    # networks:
+      # - kms-tier
