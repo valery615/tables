@@ -10,12 +10,13 @@ class RoomServiceImpl constructor(
 ) : RoomService {
 
     override fun findAll(): List<Room> {
-       val rooms =  roomRepository.findAll()
+        val rooms = roomRepository.findAll()
         return rooms
     }
 
     override fun save(room: Room): Room {
-        //TODO check existing
+        if (roomRepository.existsByNumber(room.number))
+            throw Exception("Already exists!")
         return roomRepository.save(room)
     }
 }

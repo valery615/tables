@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface RoomRepository : JpaRepository<Room, Int> {
     fun findByNumber(number: Int?) : Room
+    fun existsByNumber(number: Int?) : Boolean
 }
